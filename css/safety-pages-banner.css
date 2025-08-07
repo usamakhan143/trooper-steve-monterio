@@ -24,9 +24,9 @@
 }
 
 .swimming-safety-hero {
-    background: 
+    background:
         linear-gradient(rgba(15, 39, 67, 0.8), rgba(15, 39, 67, 0.7)),
-        url('https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        url('https://cdn.builder.io/api/v1/image/assets%2F59fb5da5a9b342648db0a1edf457b3c1%2F31426d388a204c7aad4a56f36133a0bc?format=webp&width=800');
 }
 
 .personal-safety-hero {

@@ -1,0 +1,657 @@
+/* Swimming Safety Page - All Issues Fixed */
+
+/* Global Section Styling */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0F2743;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Water Safety Rules Section */
+.water-safety-rules {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.safety-rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.safety-rule {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #C8AC5B;
+    transition: all 0.3s ease;
+}
+
+.safety-rule:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.safety-rule .rule-icon {
+    font-size: 3.5rem;
+    color: #C8AC5B;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+}
+
+.safety-rule h3 {
+    font-size: 1.4rem;
+    color: #0F2743;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.safety-rule p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Pool vs Beach Safety Section - FIXED */
+.pool-vs-beach {
+    padding: 80px 0;
+    background: white;
+}
+
+.comparison-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.safety-location {
+    background: #f8f9fa;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.safety-location:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.location-header {
+    background: linear-gradient(135deg, #0F2743, #1a3a52);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.location-header .location-icon {
+    font-size: 3rem;
+    color: #C8AC5B;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.location-header h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+}
+
+.safety-points {
+    padding: 2rem;
+}
+
+.safety-point {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.safety-point:last-child {
+    border-bottom: none;
+}
+
+.point-check {
+    color: #27ae60;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.safety-point span:last-child {
+    color: #333;
+    font-weight: 500;
+}
+
+/* Emergency Response Section - FIXED to 4 in 1 row */
+.emergency-response {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #0F2743, #1a3a52);
+    color: white;
+}
+
+.emergency-response .section-title {
+    color: white;
+}
+
+.emergency-response .section-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.emergency-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.emergency-step {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.emergency-step:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.step-number {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: #C8AC5B;
+    color: #0F2743;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.step-content {
+    padding-top: 1rem;
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    color: #C8AC5B;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emergency-step h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: 600;
+}
+
+.emergency-step p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+/* Swimming Skills Section - FIXED */
+.swimming-skills {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.skills-assessment {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.skill-level {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.skill-level:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.skill-level.beginner {
+    border-top: 4px solid #e74c3c;
+}
+
+.skill-level.intermediate {
+    border-top: 4px solid #f39c12;
+}
+
+.skill-level.advanced {
+    border-top: 4px solid #27ae60;
+}
+
+.level-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+}
+
+.skill-level.beginner .level-icon {
+    color: #e74c3c;
+}
+
+.skill-level.intermediate .level-icon {
+    color: #f39c12;
+}
+
+.skill-level.advanced .level-icon {
+    color: #27ae60;
+}
+
+.skill-level h3 {
+    font-size: 1.4rem;
+    color: #0F2743;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.skill-requirements p {
+    color: #0F2743;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.skill-requirements ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.skill-requirements li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.5rem 0;
+    color: #666;
+}
+
+.skill-requirements li::before {
+    content: "•";
+    color: #C8AC5B;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.assessment-reminder {
+    background: linear-gradient(135deg, #C8AC5B, #b8984f);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 3rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.reminder-content h4 {
+    color: white;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.reminder-content p {
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Quiz Section */
+.water-safety-quiz {
+    padding: 80px 0;
+    background: white;
+}
+
+.quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-question {
+    display: none;
+}
+
+.quiz-question.active {
+    display: block;
+}
+
+.quiz-question h3 {
+    font-size: 1.5rem;
+    color: #0F2743;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.quiz-option {
+    padding: 1rem 1.5rem;
+    border: 2px solid #ddd;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    text-align: left;
+    font-weight: 500;
+}
+
+.quiz-option:hover {
+    border-color: #C8AC5B;
+    background: #f9f5e6;
+    transform: translateY(-2px);
+}
+
+.quiz-option.correct {
+    border-color: #27ae60;
+    background: #d5f4e6;
+    color: #0F2743;
+    font-weight: 600;
+}
+
+.quiz-option.incorrect {
+    border-color: #e74c3c;
+    background: #fdeaea;
+    color: #666;
+}
+
+.quiz-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background: #ddd;
+    border-radius: 4px;
+    margin-right: 1rem;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(45deg, #C8AC5B, #b8984f);
+    transition: width 0.3s ease;
+}
+
+.quiz-result {
+    text-align: center;
+    padding: 2rem;
+}
+
+.quiz-result h3 {
+    color: #27ae60;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.restart-quiz {
+    background: #C8AC5B;
+    color: #0F2743;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.restart-quiz:hover {
+    background: #b8984f;
+    transform: translateY(-2px);
+}
+
+/* Resources Section */
+.water-safety-resources {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.resource-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #C8AC5B;
+    transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.resource-card .resource-icon {
+    font-size: 3rem;
+    color: #C8AC5B;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+}
+
+.resource-card h3 {
+    font-size: 1.2rem;
+    color: #0F2743;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.resource-card p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 1200px) {
+    .emergency-steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .emergency-step {
+        padding: 2rem;
+    }
+    
+    .emergency-step p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .safety-rules-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .comparison-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .skills-assessment {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .safety-rules-grid,
+    .emergency-steps,
+    .skills-assessment {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .safety-rule,
+    .emergency-step,
+    .skill-level {
+        padding: 1.5rem;
+    }
+    
+    .emergency-step h3 {
+        font-size: 1.1rem;
+    }
+    
+    .emergency-step p {
+        font-size: 0.9rem;
+    }
+    
+    .assessment-reminder {
+        padding: 1.5rem;
+        text-align: center;
+    }
+    
+    .quiz-container {
+        padding: 2rem 1.5rem;
+        margin: 0 20px;
+    }
+    
+    .resources-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .safety-rule .rule-icon,
+    .step-icon,
+    .level-icon,
+    .resource-card .resource-icon {
+        font-size: 2.5rem;
+    }
+    
+    .location-header .location-icon {
+        font-size: 2.5rem;
+    }
+    
+    .emergency-step {
+        padding: 1.5rem 1rem;
+    }
+    
+    .skill-level {
+        padding: 1.5rem;
+    }
+    
+    .assessment-reminder {
+        padding: 1.5rem;
+    }
+    
+    .quiz-container {
+        padding: 1.5rem 1rem;
+        margin: 0 15px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+
+/* Animation Enhancement */
+.safety-rule,
+.safety-location,
+.emergency-step,
+.skill-level,
+.resource-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,8 +1,6 @@
 // Swimming Safety Page Interactive Features
 
 document.addEventListener('DOMContentLoaded', function() {
-    initWaterSafetyGame();
-    initWaterSafetyQuiz();
     initSwimmingAnimations();
     initSkillsAssessment();
 });
@@ -111,110 +109,139 @@ function initWaterSafetyGame() {
     }
 }
 
-// Water Safety Quiz
+// Water Safety Quiz - Simplified Working Version
 function initWaterSafetyQuiz() {
     let currentQuestion = 0;
     let score = 0;
     const totalQuestions = 3;
-    
+
     const questions = document.querySelectorAll('.quiz-question');
     const progressBar = document.querySelector('.progress-fill');
     const progressText = document.querySelector('.progress-text');
     const resultDiv = document.querySelector('.quiz-result');
-    
+    const restartBtn = document.querySelector('.restart-quiz');
+
+    // Add click handlers to all quiz options
     document.querySelectorAll('.quiz-option').forEach(option => {
         option.addEventListener('click', function() {
-            handleQuizAnswer(this);
+            if (!this.disabled) {
+                handleAnswer(this);
+            }
         });
     });
-    
-    function handleQuizAnswer(selectedOption) {
+
+    // Restart quiz handler
+    if (restartBtn) {
+        restartBtn.addEventListener('click', restartQuiz);
+    }
+
+    function handleAnswer(selectedOption) {
         const isCorrect = selectedOption.getAttribute('data-correct') === 'true';
         const currentQuestionDiv = questions[currentQuestion];
         const options = currentQuestionDiv.querySelectorAll('.quiz-option');
-        
-        options.forEach(opt => opt.disabled = true);
-        
+
+        // Disable all options in current question
+        options.forEach(opt => {
+            opt.disabled = true;
+            opt.style.pointerEvents = 'none';
+        });
+
+        // Style the selected answer
         if (isCorrect) {
             selectedOption.classList.add('correct');
             score++;
-            showQuizFeedback('Correct! You know your water safety! 🌊', 'success');
         } else {
             selectedOption.classList.add('incorrect');
+            // Highlight the correct answer
             options.forEach(opt => {
                 if (opt.getAttribute('data-correct') === 'true') {
                     opt.classList.add('correct');
                 }
             });
-            showQuizFeedback('Not quite right. The correct answer is highlighted. 💧', 'info');
         }
-        
+
+        // Move to next question after 2 seconds
         setTimeout(() => {
             nextQuestion();
         }, 2000);
     }
-    
+
     function nextQuestion() {
+        // Hide current question
         questions[currentQuestion].classList.remove('active');
+        questions[currentQuestion].style.display = 'none';
+
         currentQuestion++;
-        
+
         if (currentQuestion < totalQuestions) {
+            // Show next question
             questions[currentQuestion].classList.add('active');
+            questions[currentQuestion].style.display = 'block';
             updateProgress();
         } else {
-            showQuizResults();
+            // Show results
+            showResults();
         }
     }
-    
+
     function updateProgress() {
-        const progress = (currentQuestion / totalQuestions) * 100;
+        const progress = ((currentQuestion + 1) / totalQuestions) * 100;
         progressBar.style.width = progress + '%';
         progressText.textContent = `Question ${currentQuestion + 1} of ${totalQuestions}`;
     }
-    
-    function showQuizResults() {
-        questions[currentQuestion - 1].style.display = 'none';
+
+    function showResults() {
+        // Hide progress bar
         document.querySelector('.quiz-progress').style.display = 'none';
+
+        // Show result
         resultDiv.style.display = 'block';
-        
-        const resultContent = resultDiv.querySelector('.result-content');
+
+        // Update result message
+        const resultContent = resultDiv.querySelector('.result-content p');
         let message = '';
-        
+
         if (score === totalQuestions) {
-            message = `Perfect! 🏆 You got all ${totalQuestions} questions right! You're a water safety champion!`;
-        } else if (score >= totalQuestions * 0.7) {
-            message = `Great job! 🌊 You got ${score} out of ${totalQuestions} questions right! You understand water safety well!`;
+            message = `Perfect! You got all ${totalQuestions} questions right! You're a water safety expert!`;
+        } else if (score >= 2) {
+            message = `Great job! You got ${score} out of ${totalQuestions} questions right! You know your water safety rules!`;
         } else {
-            message = `Good try! 💪 You got ${score} out of ${totalQuestions} questions right. Keep learning about water safety!`;
+            message = `Good try! You got ${score} out of ${totalQuestions} questions right. Keep practicing the water safety rules!`;
         }
-        
-        resultContent.querySelector('p').textContent = message;
-        
-        if (score === totalQuestions) {
-            createWaterCelebration();
-        }
+
+        resultContent.textContent = message;
     }
-    
-    document.querySelector('.restart-quiz').addEventListener('click', function() {
+
+    function restartQuiz() {
         currentQuestion = 0;
         score = 0;
-        
-        questions.forEach((q, index) => {
-            q.style.display = 'block';
-            q.classList.remove('active');
-            if (index === 0) q.classList.add('active');
-            
-            q.querySelectorAll('.quiz-option').forEach(opt => {
+
+        // Reset all questions
+        questions.forEach((question, index) => {
+            question.classList.remove('active');
+            question.style.display = index === 0 ? 'block' : 'none';
+            if (index === 0) question.classList.add('active');
+
+            // Reset all options
+            const options = question.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
                 opt.disabled = false;
+                opt.style.pointerEvents = 'auto';
                 opt.classList.remove('correct', 'incorrect');
             });
         });
-        
-        progressBar.style.width = '0%';
+
+        // Reset progress
+        progressBar.style.width = '33.33%';
         progressText.textContent = 'Question 1 of 3';
         document.querySelector('.quiz-progress').style.display = 'block';
+
+        // Hide result
         resultDiv.style.display = 'none';
-    });
+    }
+
+    // Initialize progress for first question
+    updateProgress();
 }
 
 // Swimming-specific animations
@@ -307,34 +334,32 @@ function createWaterCelebration() {
 
 // Utility functions
 function showQuizFeedback(message, type) {
+    // Remove any existing feedback
+    const existingFeedback = document.querySelector('.quiz-feedback');
+    if (existingFeedback) {
+        existingFeedback.remove();
+    }
+
     const feedback = document.createElement('div');
     feedback.className = `quiz-feedback ${type}`;
     feedback.textContent = message;
-    feedback.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 1rem 1.5rem;
-        border-radius: 10px;
-        color: white;
-        font-weight: 500;
-        z-index: 10000;
-        transform: translateX(400px);
-        transition: transform 0.3s ease;
-        background: ${type === 'success' ? '#3498db' : '#2ecc71'};
-        box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
-    `;
-    
+
     document.body.appendChild(feedback);
-    
+
+    // Trigger animation
     setTimeout(() => {
-        feedback.style.transform = 'translateX(0)';
+        feedback.classList.add('show');
     }, 100);
-    
+
+    // Auto remove after delay
     setTimeout(() => {
-        feedback.style.transform = 'translateX(400px)';
-        setTimeout(() => feedback.remove(), 300);
-    }, 4000);
+        feedback.classList.remove('show');
+        setTimeout(() => {
+            if (feedback.parentNode) {
+                feedback.remove();
+            }
+        }, 300);
+    }, 3000);
 }
 
 // Add CSS for swimming-specific animations
