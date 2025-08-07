@@ -1,0 +1,34 @@
+{
+  "name": "child-safety-education-website",
+  "version": "1.0.0",
+  "description": "Interactive child safety education website teaching gun safety, swimming safety, personal safety, cyber safety, and vehicle safety to children ages 5-12.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 5173",
+    "start": "python -m http.server 5173",
+    "build": "echo 'Static HTML project - no build needed'",
+    "serve": "python -m http.server 5173"
+  },
+  "keywords": [
+    "child-safety",
+    "education",
+    "safety-training",
+    "interactive-learning",
+    "first-responder",
+    "water-safety",
+    "gun-safety",
+    "cyber-safety",
+    "personal-safety",
+    "vehicle-safety"
+  ],
+  "author": "First Responder Safety Education",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/safety-kids/education-website"
+  },
+  "homepage": "https://safety-kids.github.io/education-website",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

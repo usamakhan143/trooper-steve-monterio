@@ -1,0 +1,649 @@
+/* Gun Safety Page Responsive Design */
+
+/* Enhanced Mobile Navigation for Gun Safety */
+@media (max-width: 768px) {
+    .hamburger {
+        z-index: 10001;
+    }
+    
+    .nav-menu {
+        z-index: 10000;
+    }
+}
+
+/* Hero Section Responsive */
+@media (max-width: 1200px) {
+    .safety-hero {
+        height: 50vh;
+        margin-top: 70px;
+    }
+    
+    .safety-hero h1 {
+        font-size: 3rem;
+    }
+    
+    .safety-hero p {
+        font-size: 1.2rem;
+    }
+    
+    .safety-icon {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .safety-hero {
+        height: 45vh;
+        margin-top: 80px;
+        padding: 0 20px;
+    }
+    
+    .safety-hero h1 {
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .safety-hero p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .safety-icon {
+        font-size: 3.5rem;
+    }
+    
+    .floating-elements {
+        display: none; /* Hide floating elements on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .safety-hero {
+        height: 40vh;
+        padding: 0 15px;
+    }
+    
+    .safety-hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .safety-hero p {
+        font-size: 0.95rem;
+    }
+    
+    .safety-icon {
+        font-size: 3rem;
+        margin-bottom: 0.8rem;
+    }
+}
+
+/* Main Rule Section Responsive */
+@media (max-width: 992px) {
+    .rule-steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-rule {
+        padding: 60px 0;
+    }
+    
+    .rule-steps {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .rule-step {
+        padding: 2rem 1.5rem;
+        margin: 0 10px;
+    }
+    
+    .step-icon {
+        font-size: 3rem;
+    }
+    
+    .rule-step h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .rule-step p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .rule-step {
+        padding: 1.5rem 1rem;
+        margin: 0 5px;
+    }
+    
+    .step-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        top: -12px;
+        left: -12px;
+    }
+    
+    .step-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .rule-step h3 {
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+/* Interactive Quiz Responsive */
+@media (max-width: 768px) {
+    .interactive-quiz {
+        padding: 60px 0;
+    }
+    
+    .quiz-container {
+        padding: 2rem 1.5rem;
+        margin: 0 20px;
+        border-radius: 10px;
+    }
+    
+    .quiz-question h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .quiz-options {
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .quiz-option {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .progress-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-container {
+        padding: 1.5rem 1rem;
+        margin: 0 15px;
+    }
+    
+    .quiz-question h3 {
+        font-size: 1.3rem;
+        line-height: 1.4;
+    }
+    
+    .quiz-option {
+        padding: 0.7rem 0.8rem;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    
+    .quiz-result h3 {
+        font-size: 1.4rem;
+    }
+    
+    .restart-quiz {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Why Matters Section Responsive */
+@media (max-width: 992px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .content-visual {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .why-matters {
+        padding: 60px 0;
+    }
+    
+    .content-grid {
+        gap: 2.5rem;
+    }
+    
+    .content-text h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .safety-points {
+        gap: 1.2rem;
+        margin-top: 1.5rem;
+    }
+    
+    .safety-point {
+        padding: 1.2rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+    
+    .point-icon {
+        font-size: 2.5rem;
+        align-self: center;
+    }
+    
+    .safety-point h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .safety-point p {
+        font-size: 0.95rem;
+    }
+    
+    .illustration-placeholder {
+        height: 250px;
+        padding: 1.5rem;
+    }
+    
+    .illustration-placeholder span {
+        font-size: 3rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .illustration-placeholder p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .safety-point {
+        padding: 1rem;
+    }
+    
+    .point-icon {
+        font-size: 2rem;
+    }
+    
+    .safety-point h4 {
+        font-size: 1rem;
+    }
+    
+    .safety-point p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .illustration-placeholder {
+        height: 200px;
+        padding: 1rem;
+    }
+    
+    .illustration-placeholder span {
+        font-size: 2.5rem;
+    }
+}
+
+/* Interactive Scenario Responsive */
+@media (max-width: 768px) {
+    .interactive-scenario {
+        padding: 60px 0;
+    }
+    
+    .scenario-container {
+        padding: 0 20px;
+    }
+    
+    .scenario-story {
+        margin-bottom: 2rem;
+    }
+    
+    .scenario-story p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .scenario-options {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .scenario-btn {
+        padding: 1rem;
+        font-size: 0.95rem;
+        text-align: left;
+        border-radius: 8px;
+    }
+    
+    .btn-icon {
+        font-size: 1.2rem;
+        margin-right: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .scenario-container {
+        padding: 0 15px;
+    }
+    
+    .scenario-story p {
+        font-size: 0.95rem;
+    }
+    
+    .scenario-btn {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+        text-align: center;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .btn-icon {
+        margin-right: 0;
+        margin-bottom: 0.3rem;
+    }
+    
+    .feedback-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .try-again-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Resources Section Responsive */
+@media (max-width: 992px) {
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .safety-resources {
+        padding: 60px 0;
+    }
+    
+    .resources-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .resource-card {
+        padding: 2rem 1.5rem;
+        text-align: center;
+    }
+    
+    .resource-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .resource-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .resource-card p {
+        font-size: 0.95rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .download-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .resource-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .resource-icon {
+        font-size: 2rem;
+    }
+    
+    .resource-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .resource-card p {
+        font-size: 0.9rem;
+    }
+    
+    .download-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
+        width: 100%;
+    }
+}
+
+/* Safety Promise Responsive */
+@media (max-width: 768px) {
+    .safety-promise {
+        padding: 60px 0;
+    }
+    
+    .promise-content {
+        padding: 0 20px;
+        text-align: center;
+    }
+    
+    .promise-content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .promise-text p {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .promise-steps {
+        flex-direction: column;
+        gap: 0.8rem;
+        margin: 1.5rem 0;
+    }
+    
+    .promise-steps span {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+        border-radius: 20px;
+        background: rgba(200, 172, 91, 0.1);
+        color: #0F2743;
+        font-weight: 600;
+    }
+    
+    .promise-btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .promise-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .promise-text p {
+        font-size: 0.95rem;
+    }
+    
+    .promise-steps span {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .promise-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+}
+
+/* Other Topics Section Responsive */
+@media (max-width: 992px) {
+    .topics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .other-topics {
+        padding: 60px 0;
+    }
+    
+    .topics-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    
+    .topic-card {
+        padding: 1.5rem;
+        text-align: center;
+        border-radius: 10px;
+    }
+    
+    .topic-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .topic-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .topic-card p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .topic-card {
+        padding: 1.2rem;
+    }
+    
+    .topic-icon {
+        font-size: 2rem;
+    }
+    
+    .topic-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .topic-card p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Section Titles and General Mobile Improvements */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+    
+    /* Improve tap targets for mobile */
+    .quiz-option,
+    .scenario-btn,
+    .download-btn,
+    .promise-btn {
+        min-height: 44px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .quiz-option:active,
+    .scenario-btn:active,
+    .download-btn:active,
+    .promise-btn:active {
+        transform: scale(0.98);
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Ultra mobile improvements */
+    body.gun-safety {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    /* Fix any text overflow issues */
+    .rule-step h3,
+    .safety-point h4,
+    .resource-card h3 {
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+}
+
+/* Font Awesome Icon Responsive Adjustments */
+@media (max-width: 768px) {
+    .step-icon i,
+    .point-icon i,
+    .resource-icon i,
+    .topic-icon i,
+    .btn-icon i {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Ensure icons scale properly */
+    .safety-icon i {
+        font-size: inherit;
+    }
+    
+    .floating-element i {
+        font-size: inherit;
+    }
+}
+
+/* Enhanced accessibility for mobile */
+@media (max-width: 768px) {
+    .quiz-option:focus,
+    .scenario-btn:focus,
+    .download-btn:focus,
+    .promise-btn:focus {
+        outline: 2px solid #C8AC5B;
+        outline-offset: 2px;
+    }
+    
+    /* Better contrast for readability */
+    .rule-step p,
+    .safety-point p,
+    .resource-card p {
+        color: #444;
+        line-height: 1.6;
+    }
+}

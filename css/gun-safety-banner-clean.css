@@ -1,0 +1,190 @@
+/* Clean Professional Gun Safety Banner */
+
+/* Reset any existing hero styles */
+.safety-hero.gun-safety-hero {
+    overflow: visible;
+    height: 60vh;
+    min-height: 450px;
+    background: 
+        linear-gradient(rgba(15, 39, 67, 0.8), rgba(15, 39, 67, 0.6)),
+        url('https://cdn.builder.io/api/v1/image/assets%2F59fb5da5a9b342648db0a1edf457b3c1%2F87c9534d89e44074898aa6b93586a6de?format=webp&width=800');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    margin-top: 80px;
+}
+
+.gun-safety-hero .hero-content {
+    max-width: 800px;
+    padding: 0 40px;
+    z-index: 2;
+}
+
+.gun-safety-hero .safety-icon {
+    font-size: 4rem;
+    color: #C8AC5B;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.gun-safety-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    line-height: 1.2;
+}
+
+.gun-safety-hero p {
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #f8f9fa;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.gun-safety-hero .hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.gun-safety-hero .cta-primary {
+    background: #C8AC5B;
+    color: #0F2743;
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid #C8AC5B;
+}
+
+.gun-safety-hero .cta-primary:hover {
+    background: #b8984f;
+    border-color: #b8984f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.gun-safety-hero .cta-secondary {
+    background: transparent;
+    color: white;
+    padding: 1rem 2.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.gun-safety-hero .cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Remove floating elements and badges for clean design */
+.gun-safety-hero .floating-elements {
+    display: none !important;
+}
+
+.gun-safety-hero .safety-badge {
+    display: none !important;
+}
+
+/* Remove any hero top shade */
+.gun-safety-hero .hero-top-shade {
+    display: none !important;
+}
+
+/* Ensure clean overlay */
+.safety-hero.gun-safety-hero::before {
+    display: none !important;
+}
+
+.safety-hero.gun-safety-hero::after {
+    display: none !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .safety-hero.gun-safety-hero {
+        height: 50vh;
+        min-height: 400px;
+        margin-top: 80px;
+    }
+    
+    .gun-safety-hero .hero-content {
+        padding: 0 20px;
+    }
+    
+    .gun-safety-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .gun-safety-hero p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .gun-safety-hero .hero-cta {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .gun-safety-hero .cta-primary,
+    .gun-safety-hero .cta-secondary {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        min-width: 200px;
+        text-align: center;
+    }
+    
+    .gun-safety-hero .safety-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .safety-hero.gun-safety-hero {
+        height: 45vh;
+        min-height: 350px;
+    }
+    
+    .gun-safety-hero .hero-content {
+        padding: 0 15px;
+    }
+    
+    .gun-safety-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .gun-safety-hero p {
+        font-size: 1rem;
+    }
+    
+    .gun-safety-hero .safety-icon {
+        font-size: 2.5rem;
+    }
+}
+
+/* Clean overlay without complex gradients */
+.safety-hero.gun-safety-hero::before,
+.safety-hero.gun-safety-hero::after {
+    display: none;
+}

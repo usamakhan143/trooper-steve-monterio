@@ -1,0 +1,119 @@
+/* Swimming Safety Page Specific Styles */
+
+.swimming-safety-hero {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+.hero-top-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.3) 80%, transparent 100%);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.swimming-safety-hero .safety-icon {
+    color: #ffffff;
+}
+
+.swimming-safety-hero h1 {
+    color: #ffffff;
+}
+
+.swimming-safety-hero p {
+    color: #ffffff;
+}
+
+/* Swimming safety-specific rule steps */
+.swimming-safety .rule-step {
+    border-color: #3498db;
+}
+
+.swimming-safety .step-number {
+    background: #3498db;
+}
+
+.swimming-safety .rule-step h3 {
+    color: #3498db;
+}
+
+.swimming-safety .progress-fill {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+}
+
+.swimming-safety .safety-point {
+    border-left-color: #3498db;
+}
+
+.swimming-safety .safety-point h4 {
+    color: #3498db;
+}
+
+.swimming-safety .illustration-placeholder {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+.swimming-safety .restart-quiz {
+    background: #3498db;
+}
+
+.swimming-safety .restart-quiz:hover {
+    background: #2980b9;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .safety-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .safety-hero p {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .rule-steps {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .quiz-container {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+
+    .safety-hero {
+        height: 50vh;
+        margin-top: 100px;
+    }
+
+    .floating-elements {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .safety-hero h1 {
+        font-size: 2rem;
+    }
+
+    .safety-hero p {
+        font-size: 1rem;
+    }
+
+    .safety-icon {
+        font-size: 3.5rem;
+    }
+
+    .quiz-container {
+        padding: 1.5rem;
+    }
+}
