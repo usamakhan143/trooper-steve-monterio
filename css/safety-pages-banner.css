@@ -1,0 +1,147 @@
+/* Universal Simple Banner for All Safety Pages */
+
+.safety-hero {
+    height: 50vh;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    margin-top: 80px;
+    padding: 40px 20px;
+}
+
+/* Different background images for each page */
+.gun-safety-hero {
+    background: 
+        linear-gradient(rgba(15, 39, 67, 0.8), rgba(15, 39, 67, 0.7)),
+        url('https://cdn.builder.io/api/v1/image/assets%2F59fb5da5a9b342648db0a1edf457b3c1%2F87c9534d89e44074898aa6b93586a6de?format=webp&width=800');
+}
+
+.swimming-safety-hero {
+    background: 
+        linear-gradient(rgba(15, 39, 67, 0.8), rgba(15, 39, 67, 0.7)),
+        url('https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+}
+
+.personal-safety-hero {
+    background: 
+        linear-gradient(rgba(15, 39, 67, 0.8), rgba(15, 39, 67, 0.7)),
+        url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+}
+
+.cyber-safety-hero {
+    background: 
+        linear-gradient(rgba(15, 39, 67, 0.8), rgba(15, 39, 67, 0.7)),
+        url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+}
+
+.vehicle-safety-hero {
+    background: 
+        linear-gradient(rgba(15, 39, 67, 0.8), rgba(15, 39, 67, 0.7)),
+        url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+}
+
+.safety-hero .hero-content {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+/* Simple Page Title */
+.safety-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    padding: 0;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    line-height: 1;
+    width: 100%;
+}
+
+/* Simple Breadcrumb */
+.simple-breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.simple-breadcrumb a {
+    color: #C8AC5B;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.simple-breadcrumb a:hover {
+    color: white;
+}
+
+.simple-breadcrumb span {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0.3rem;
+}
+
+/* Hide any old elements */
+.breadcrumb-nav,
+.page-header,
+.page-category,
+.page-subtitle,
+.page-meta,
+.hero-cta,
+.safety-icon,
+.floating-elements,
+.safety-badge {
+    display: none !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .safety-hero {
+        height: 45vh;
+        min-height: 350px;
+        padding: 20px 15px;
+    }
+    
+    .safety-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .simple-breadcrumb {
+        font-size: 0.8rem;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .safety-hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .simple-breadcrumb {
+        font-size: 0.75rem;
+    }
+}
+
+/* Remove any overlays or complex styling */
+.safety-hero::before,
+.safety-hero::after {
+    display: none !important;
+}

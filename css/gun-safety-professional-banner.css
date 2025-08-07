@@ -1,0 +1,294 @@
+/* Professional Gun Safety Page Banner with Breadcrumb */
+
+.safety-hero.gun-safety-hero {
+    height: 50vh;
+    min-height: 400px;
+    background: 
+        linear-gradient(rgba(15, 39, 67, 0.75), rgba(15, 39, 67, 0.65)),
+        url('https://cdn.builder.io/api/v1/image/assets%2F59fb5da5a9b342648db0a1edf457b3c1%2F87c9534d89e44074898aa6b93586a6de?format=webp&width=800');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    position: relative;
+    margin-top: 80px;
+    padding: 0;
+}
+
+.gun-safety-hero .hero-content {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    z-index: 2;
+    text-align: left;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb-nav {
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+}
+
+.breadcrumb a {
+    color: #C8AC5B;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.breadcrumb-separator {
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0.5rem;
+}
+
+.breadcrumb-current {
+    color: white;
+    font-weight: 500;
+}
+
+/* Page Heading Section */
+.page-header {
+    max-width: 800px;
+}
+
+.page-category {
+    background: rgba(200, 172, 91, 0.9);
+    color: #0F2743;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.gun-safety-hero h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    line-height: 1.2;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Page Meta Information */
+.page-meta {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.meta-item i {
+    color: #C8AC5B;
+    font-size: 1rem;
+}
+
+/* Professional CTAs */
+.gun-safety-hero .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.gun-safety-hero .cta-primary {
+    background: #C8AC5B;
+    color: #0F2743;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid #C8AC5B;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.gun-safety-hero .cta-primary:hover {
+    background: #b8984f;
+    border-color: #b8984f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.gun-safety-hero .cta-secondary {
+    background: transparent;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.gun-safety-hero .cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Professional Overlay */
+.safety-hero.gun-safety-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(15, 39, 67, 0.3) 0%,
+        rgba(15, 39, 67, 0.1) 50%,
+        rgba(15, 39, 67, 0.3) 100%
+    );
+    z-index: 1;
+}
+
+/* Hide old elements */
+.gun-safety-hero .safety-icon {
+    display: none;
+}
+
+.gun-safety-hero .floating-elements {
+    display: none !important;
+}
+
+.gun-safety-hero .safety-badge {
+    display: none !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .safety-hero.gun-safety-hero {
+        height: 45vh;
+        min-height: 350px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .gun-safety-hero .hero-content {
+        padding: 0 20px;
+        text-align: center;
+    }
+    
+    .breadcrumb {
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .gun-safety-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .page-meta {
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .gun-safety-hero .hero-cta {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    
+    .gun-safety-hero .cta-primary,
+    .gun-safety-hero .cta-secondary {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+        min-width: 180px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .safety-hero.gun-safety-hero {
+        height: 40vh;
+        min-height: 320px;
+    }
+    
+    .gun-safety-hero .hero-content {
+        padding: 0 15px;
+    }
+    
+    .gun-safety-hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .page-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .page-meta {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .breadcrumb {
+        font-size: 0.8rem;
+    }
+}
+
+/* Professional styling enhancements */
+.page-header {
+    animation: slideInUp 0.8s ease-out;
+}
+
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
