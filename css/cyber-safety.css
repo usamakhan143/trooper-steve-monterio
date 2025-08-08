@@ -327,14 +327,15 @@
 
 /* Cyberbullying Prevention */
 .cyberbullying-prevention {
-    padding: 100px 0;
+    padding: 120px 0 100px 0;
     background: #000000;
 }
 
 .cyberbullying-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 6rem;
+    margin-top: 2rem;
 }
 
 .what-is-cyberbullying h3 {
@@ -367,6 +368,7 @@
     border-radius: 0;
     border: 1px solid #C8AC5B;
     border-left: 4px solid #C8AC5B;
+    color: #FFFFFF;
 }
 
 .what-is-cyberbullying li i {
