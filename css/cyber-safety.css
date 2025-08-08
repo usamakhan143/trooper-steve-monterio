@@ -1,119 +1,789 @@
-/* Cyber Safety Page Specific Styles */
+/* Cyber Safety Page Complete Styles - Global Theme */
 
-.cyber-safety-hero {
-    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+.cyber-safety {
+    font-family: 'Fredoka', sans-serif;
 }
 
-.hero-top-shade {
+/* Hero Section - WITH NEW BACKGROUND IMAGE */
+.cyber-safety-hero {
+    background: linear-gradient(135deg, rgba(15, 39, 67, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%),
+                url('https://cdn.builder.io/api/v1/image/assets%2F59fb5da5a9b342648db0a1edf457b3c1%2Fb9c2440ced574e78978e0b8ab68ab50b?format=webp&width=800') center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.cyber-safety-hero::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 200px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.3) 80%, transparent 100%);
-    z-index: 3;
-    pointer-events: none;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="cyberPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(200,172,91,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23cyberPattern)"/></svg>');
+    opacity: 0.3;
 }
 
-.cyber-safety-hero .safety-icon {
-    color: #ffffff;
+/* Digital Citizenship Rules */
+.digital-citizenship {
+    padding: 100px 0;
+    background: #000000;
+    position: relative;
 }
 
-.cyber-safety-hero h1 {
-    color: #ffffff;
+.digital-citizenship::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 49%, rgba(200, 172, 91, 0.05) 50%, transparent 51%);
 }
 
-.cyber-safety-hero p {
-    color: #ffffff;
+.section-title {
+    font-size: 3rem;
+    color: #C8AC5B;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
 }
 
-/* Cyber-specific rule steps */
-.cyber-safety .rule-step {
-    border-color: #9b59b6;
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #C8AC5B;
+    border-radius: 2px;
 }
 
-.cyber-safety .step-number {
-    background: #9b59b6;
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    margin-bottom: 4rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.cyber-safety .rule-step h3 {
-    color: #9b59b6;
+.citizenship-rules {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
 }
 
-.cyber-safety .progress-fill {
-    background: linear-gradient(45deg, #9b59b6, #8e44ad);
+.rule-card {
+    background: #0F2743;
+    border-radius: 0;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(200, 172, 91, 0.2);
+    transition: all 0.3s ease;
+    border: 2px solid #C8AC5B;
+    position: relative;
+    overflow: hidden;
 }
 
-.cyber-safety .safety-point {
-    border-left-color: #9b59b6;
+.rule-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(200, 172, 91, 0.2), rgba(15, 39, 67, 0.2));
+    transition: left 0.3s ease;
 }
 
-.cyber-safety .safety-point h4 {
-    color: #9b59b6;
+.rule-card:hover::before {
+    left: 0;
 }
 
-.cyber-safety .illustration-placeholder {
-    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+.rule-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(200, 172, 91, 0.3);
 }
 
-.cyber-safety .restart-quiz {
-    background: #9b59b6;
+.rule-icon {
+    width: 70px;
+    height: 70px;
+    background: #C8AC5B;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #0F2743;
+    border: 2px solid #C8AC5B;
 }
 
-.cyber-safety .restart-quiz:hover {
-    background: #8e44ad;
+.rule-card h3 {
+    font-size: 1.5rem;
+    color: #C8AC5B;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
 }
 
-/* Mobile Responsiveness */
+.rule-card p {
+    color: #FFFFFF;
+    line-height: 1.6;
+    font-size: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Password Security Section - FIXED ALIGNMENT */
+.password-security {
+    padding: 100px 0;
+    background: #0F2743;
+    color: white;
+}
+
+.password-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Left Column - Password Tips */
+.password-tips {
+    display: flex;
+    flex-direction: column;
+}
+
+.password-tips h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #C8AC5B;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.password-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #000000;
+    border-radius: 0;
+    border: 1px solid #C8AC5B;
+    min-height: 60px;
+}
+
+.check-icon {
+    width: 30px;
+    height: 30px;
+    background: #C8AC5B;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #0F2743;
+    flex-shrink: 0;
+}
+
+.check-item span:last-child {
+    color: #FFFFFF;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+/* Right Column - Password Creator - ALIGNED WITH FIRST CHECKLIST ITEM */
+.password-creator {
+    background: #000000;
+    padding: 2rem;
+    border-radius: 0;
+    border: 2px solid #C8AC5B;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px; /* This aligns it with the first checklist item */
+}
+
+.password-creator h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #C8AC5B;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.password-input-container {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+#password-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #C8AC5B;
+    border-radius: 0;
+    background: #0F2743;
+    color: white;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+#password-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#password-input:focus {
+    outline: none;
+    border-color: #C8AC5B;
+    box-shadow: 0 0 10px rgba(200, 172, 91, 0.3);
+}
+
+#show-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #C8AC5B;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.strength-meter {
+    margin-bottom: 1rem;
+}
+
+.strength-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    border: 1px solid #C8AC5B;
+}
+
+.strength-bar .bar-fill {
+    height: 100%;
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+.strength-bar .bar-fill.weak { background: #e74c3c; width: 25%; }
+.strength-bar .bar-fill.medium { background: #f39c12; width: 50%; }
+.strength-bar .bar-fill.good { background: #C8AC5B; width: 75%; }
+.strength-bar .bar-fill.strong { background: #2ecc71; width: 100%; }
+
+.strength-text {
+    font-size: 0.9rem;
+    color: #FFFFFF;
+}
+
+.password-suggestions {
+    background: #0F2743;
+    padding: 1rem;
+    border-radius: 0;
+    border-left: 4px solid #C8AC5B;
+    margin-top: auto;
+}
+
+.password-suggestions p {
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.password-suggestions code {
+    background: rgba(200, 172, 91, 0.2);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0;
+    color: #C8AC5B;
+}
+
+/* Cyberbullying Prevention */
+.cyberbullying-prevention {
+    padding: 100px 0;
+    background: #000000;
+}
+
+.cyberbullying-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.what-is-cyberbullying h3 {
+    font-size: 2rem;
+    color: #C8AC5B;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.what-is-cyberbullying p {
+    color: #FFFFFF;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.what-is-cyberbullying ul {
+    list-style: none;
+    padding: 0;
+}
+
+.what-is-cyberbullying li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #0F2743;
+    margin-bottom: 1rem;
+    border-radius: 0;
+    border: 1px solid #C8AC5B;
+    border-left: 4px solid #C8AC5B;
+}
+
+.what-is-cyberbullying li i {
+    color: #C8AC5B;
+    font-size: 1.2rem;
+}
+
+.stop-cyberbullying-steps h3 {
+    font-size: 2rem;
+    color: #C8AC5B;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.step-card {
+    background: #0F2743;
+    padding: 2rem;
+    border-radius: 0;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 2px solid #C8AC5B;
+    border-top: 4px solid #C8AC5B;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(200, 172, 91, 0.3);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: #C8AC5B;
+    color: #0F2743;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+    border: 2px solid #C8AC5B;
+}
+
+.step-card h4 {
+    font-size: 1.3rem;
+    color: #C8AC5B;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.step-card p {
+    color: #FFFFFF;
+    line-height: 1.5;
+}
+
+/* Online vs Offline Game */
+.online-offline-game {
+    padding: 100px 0;
+    background: #0F2743;
+    color: white;
+}
+
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.game-container p {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: #FFFFFF;
+}
+
+.scenarios-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.scenario-item {
+    background: #000000;
+    padding: 2rem;
+    border-radius: 0;
+    border: 2px solid #C8AC5B;
+}
+
+.scenario-text {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: #C8AC5B;
+}
+
+.answer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.answer-btn {
+    padding: 0.8rem 2rem;
+    border: 2px solid #C8AC5B;
+    background: #0F2743;
+    color: white;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.answer-btn:hover {
+    background: #C8AC5B;
+    color: #0F2743;
+}
+
+.answer-btn.correct {
+    background: #2ecc71;
+    border-color: #2ecc71;
+}
+
+.answer-btn.incorrect {
+    background: #e74c3c;
+    border-color: #e74c3c;
+}
+
+.feedback-text {
+    margin-top: 1rem;
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 0;
+    background: #0F2743;
+    border: 1px solid #C8AC5B;
+}
+
+.game-score {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #C8AC5B;
+}
+
+#reset-cyber-game {
+    background: #C8AC5B;
+    color: #0F2743;
+    border: 2px solid #C8AC5B;
+    padding: 1rem 2rem;
+    border-radius: 0;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#reset-cyber-game:hover {
+    background: #0F2743;
+    color: #C8AC5B;
+}
+
+/* Safe Websites Section */
+.safe-websites {
+    padding: 100px 0;
+    background: #000000;
+}
+
+.websites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.website-card {
+    background: #0F2743;
+    padding: 2.5rem;
+    border-radius: 0;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 2px solid #C8AC5B;
+    border-top: 4px solid #C8AC5B;
+}
+
+.website-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(200, 172, 91, 0.3);
+}
+
+.website-icon {
+    width: 80px;
+    height: 80px;
+    background: #C8AC5B;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2.5rem;
+    color: #0F2743;
+    border: 2px solid #C8AC5B;
+}
+
+.website-card h3 {
+    font-size: 1.5rem;
+    color: #C8AC5B;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.website-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.website-card li {
+    padding: 0.5rem 0;
+    color: #FFFFFF;
+    border-bottom: 1px solid rgba(200, 172, 91, 0.3);
+}
+
+.website-card li:last-child {
+    border-bottom: none;
+}
+
+.website-reminder {
+    background: #C8AC5B;
+    padding: 2rem;
+    border-radius: 0;
+    margin-top: 3rem;
+    text-align: center;
+    border: 2px solid #0F2743;
+}
+
+.website-reminder p {
+    margin: 0;
+    color: #0F2743;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Resources Section */
+.cyber-safety-resources {
+    padding: 100px 0;
+    background: #0F2743;
+    color: white;
+}
+
+.cyber-safety-resources .section-title {
+    color: #C8AC5B;
+}
+
+.cyber-safety-resources .section-title::after {
+    background: #C8AC5B;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.resource-card {
+    background: #000000;
+    padding: 2rem;
+    border-radius: 0;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid #C8AC5B;
+}
+
+.resource-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(200, 172, 91, 0.3);
+}
+
+.resource-icon {
+    width: 70px;
+    height: 70px;
+    background: #C8AC5B;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: #0F2743;
+    border: 2px solid #C8AC5B;
+}
+
+.resource-card h3 {
+    font-size: 1.3rem;
+    color: #C8AC5B;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.resource-card p {
+    color: #FFFFFF;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .password-content {
+        gap: 3rem;
+    }
+    
+    .password-tips h3,
+    .password-creator h3 {
+        font-size: 1.7rem;
+    }
+    
+    .password-creator {
+        margin-top: 60px; /* Maintain alignment on tablets */
+    }
+}
+
 @media (max-width: 768px) {
-    .safety-hero h1 {
-        font-size: 2.5rem;
+    .section-title {
+        font-size: 2rem;
     }
-
-    .safety-hero p {
-        font-size: 1.1rem;
-        padding: 0 1rem;
-    }
-
-    .rule-steps {
+    
+    .citizenship-rules {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
     }
-
-    .content-grid {
+    
+    .password-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-
-    .quiz-container {
+    
+    .password-tips,
+    .password-creator {
+        width: 100%;
+    }
+    
+    .password-creator {
+        margin-top: 0; /* Remove margin on mobile */
+    }
+    
+    .password-tips h3 {
+        height: auto; /* Remove fixed height on mobile */
+    }
+    
+    .cyberbullying-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .websites-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .answer-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .rule-card {
         padding: 2rem;
-        margin: 0 1rem;
-    }
-
-    .safety-hero {
-        height: 50vh;
-        margin-top: 100px;
-    }
-
-    .floating-elements {
-        display: none;
     }
 }
 
 @media (max-width: 480px) {
-    .safety-hero h1 {
-        font-size: 2rem;
+    .section-title {
+        font-size: 1.5rem;
     }
-
-    .safety-hero p {
-        font-size: 1rem;
-    }
-
-    .safety-icon {
-        font-size: 3.5rem;
-    }
-
-    .quiz-container {
+    
+    .rule-card {
         padding: 1.5rem;
+    }
+    
+    .scenario-item {
+        padding: 1.5rem;
+    }
+    
+    .scenario-text {
+        font-size: 1.1rem;
+    }
+    
+    .answer-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .password-creator,
+    .password-tips {
+        padding: 1.5rem;
+    }
+    
+    .check-item {
+        padding: 0.8rem;
+        min-height: 50px;
     }
 }

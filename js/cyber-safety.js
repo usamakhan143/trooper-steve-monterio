@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initPasswordChecker();
     initOnlineOfflineGame();
     initCyberSafetyAnimations();
+    initRuleCardAnimations();
 });
 
 function initPasswordChecker() {
@@ -11,19 +12,24 @@ function initPasswordChecker() {
     const strengthBar = document.querySelector('.strength-bar');
     const strengthLevel = document.getElementById('strength-level');
     
+    if (!passwordInput) return;
+    
     passwordInput.addEventListener('input', function() {
         checkPasswordStrength(this.value);
     });
     
-    showPasswordBtn.addEventListener('click', function() {
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        this.textContent = type === 'password' ? '👁️' : '🙈';
-    });
+    if (showPasswordBtn) {
+        showPasswordBtn.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+        });
+    }
     
     function checkPasswordStrength(password) {
         let strength = 0;
         let feedback = '';
+        let strengthClass = '';
         
         if (password.length >= 8) strength += 25;
         if (/[a-z]/.test(password)) strength += 25;
@@ -31,57 +37,85 @@ function initPasswordChecker() {
         if (/[0-9]/.test(password)) strength += 15;
         if (/[^A-Za-z0-9]/.test(password)) strength += 10;
         
-        strengthBar.style.width = strength + '%';
+        // Create or update strength bar fill
+        let barFill = strengthBar.querySelector('.bar-fill');
+        if (!barFill) {
+            barFill = document.createElement('div');
+            barFill.className = 'bar-fill';
+            strengthBar.appendChild(barFill);
+        }
+        
+        barFill.style.width = strength + '%';
+        
+        // Remove existing strength classes
+        barFill.classList.remove('weak', 'medium', 'good', 'strong');
         
         if (strength < 40) {
-            strengthBar.style.background = '#e74c3c';
+            strengthClass = 'weak';
             strengthLevel.textContent = 'Weak';
             feedback = 'Try adding more letters, numbers, and symbols!';
         } else if (strength < 70) {
-            strengthBar.style.background = '#f39c12';
+            strengthClass = 'medium';
             strengthLevel.textContent = 'Medium';
             feedback = 'Good! Try adding a symbol or making it longer.';
+        } else if (strength < 90) {
+            strengthClass = 'good';
+            strengthLevel.textContent = 'Good';
+            feedback = 'Great! Just a bit more for maximum security.';
         } else {
-            strengthBar.style.background = '#2ecc71';
+            strengthClass = 'strong';
             strengthLevel.textContent = 'Strong';
-            feedback = 'Excellent! This is a strong password!';
+            feedback = 'Excellent! This is a very strong password!';
         }
         
-        document.querySelector('.password-suggestions p').textContent = '💡 ' + feedback;
+        barFill.classList.add(strengthClass);
+        
+        const suggestionElement = document.querySelector('.password-suggestions p');
+        if (suggestionElement) {
+            suggestionElement.innerHTML = '<i class="fas fa-lightbulb"></i> ' + feedback;
+        }
     }
 }
 
 function initOnlineOfflineGame() {
     let score = 0;
-    const totalQuestions = 4;
+    const scenarios = document.querySelectorAll('.scenario-item');
+    const totalQuestions = scenarios.length;
     
-    document.querySelectorAll('.scenario-item').forEach(scenario => {
+    scenarios.forEach(scenario => {
         const buttons = scenario.querySelectorAll('.answer-btn');
         const correctAnswer = scenario.getAttribute('data-answer');
         const feedback = scenario.querySelector('.feedback-text');
+        let answered = false;
         
         buttons.forEach(button => {
             button.addEventListener('click', function() {
+                if (answered) return;
+                answered = true;
+                
                 const choice = this.getAttribute('data-choice');
                 buttons.forEach(btn => btn.disabled = true);
                 
                 if (choice === correctAnswer) {
-                    this.style.background = '#2ecc71';
-                    this.style.color = 'white';
-                    feedback.innerHTML = '✅ Correct! Good digital citizenship!';
-                    feedback.style.color = '#2ecc71';
+                    this.classList.add('correct');
+                    feedback.innerHTML = '<i class="fas fa-check-circle"></i> Correct! Good digital citizenship!';
+                    feedback.style.color = '#48bb78';
                     score++;
+                    
+                    // Add success animation
+                    this.style.animation = 'successPulse 0.6s ease';
                 } else {
-                    this.style.background = '#e74c3c';
-                    this.style.color = 'white';
+                    this.classList.add('incorrect');
                     buttons.forEach(btn => {
                         if (btn.getAttribute('data-choice') === correctAnswer) {
-                            btn.style.background = '#2ecc71';
-                            btn.style.color = 'white';
+                            btn.classList.add('correct');
                         }
                     });
-                    feedback.innerHTML = `❌ Not quite. The correct answer is highlighted.`;
-                    feedback.style.color = '#e74c3c';
+                    feedback.innerHTML = '<i class="fas fa-times-circle"></i> Not quite. The correct answer is highlighted in green.';
+                    feedback.style.color = '#e53e3e';
+                    
+                    // Add error animation
+                    this.style.animation = 'errorShake 0.6s ease';
                 }
                 
                 feedback.style.display = 'block';
@@ -91,17 +125,217 @@ function initOnlineOfflineGame() {
     });
     
     function updateCyberScore() {
-        document.getElementById('cyber-score').textContent = score;
-        if (score === totalQuestions) {
-            document.getElementById('reset-cyber-game').style.display = 'inline-block';
+        const scoreElement = document.getElementById('cyber-score');
+        if (scoreElement) {
+            scoreElement.textContent = score;
+            
+            if (score === totalQuestions) {
+                setTimeout(() => {
+                    showGameCompletion();
+                }, 500);
+            }
+        }
+    }
+    
+    function showGameCompletion() {
+        const resetButton = document.getElementById('reset-cyber-game');
+        if (resetButton) {
+            resetButton.style.display = 'inline-block';
+            resetButton.addEventListener('click', resetGame);
+        }
+        
+        // Show completion notification
+        if (typeof showNotification === 'function') {
             showNotification('Perfect! You understand cyber safety! 💻', 'success');
         }
+        
+        // Add celebration animation
+        document.querySelectorAll('.answer-btn.correct').forEach(btn => {
+            btn.style.animation = 'celebrationBounce 1s ease infinite';
+        });
+    }
+    
+    function resetGame() {
+        score = 0;
+        scenarios.forEach(scenario => {
+            const buttons = scenario.querySelectorAll('.answer-btn');
+            const feedback = scenario.querySelector('.feedback-text');
+            
+            buttons.forEach(btn => {
+                btn.disabled = false;
+                btn.classList.remove('correct', 'incorrect');
+                btn.style.animation = '';
+            });
+            
+            feedback.style.display = 'none';
+            scenario.querySelector('.answer-buttons').style.pointerEvents = 'auto';
+        });
+        
+        updateCyberScore();
+        document.getElementById('reset-cyber-game').style.display = 'none';
     }
 }
 
+function initRuleCardAnimations() {
+    const ruleCards = document.querySelectorAll('.rule-card');
+    
+    // Add staggered animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.animation = 'slideInUp 0.6s ease forwards';
+                    entry.target.style.opacity = '1';
+                }, index * 100);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    ruleCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        observer.observe(card);
+        
+        // Add hover sound effect (visual feedback)
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+}
+
 function initCyberSafetyAnimations() {
-    if (window.SafetyAnimations) {
-        window.SafetyAnimations.cyberSafety().dataStream();
-        window.SafetyAnimations.cyberSafety().shieldProtection();
+    // Animate digital citizenship rules
+    const rules = document.querySelectorAll('.citizenship-rules .rule-card');
+    rules.forEach((rule, index) => {
+        rule.style.animationDelay = `${index * 0.1}s`;
+    });
+    
+    // Animate step cards
+    const stepCards = document.querySelectorAll('.step-card');
+    stepCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.2}s`;
+    });
+    
+    // Add floating animation to icons
+    const icons = document.querySelectorAll('.rule-icon, .website-icon, .resource-icon');
+    icons.forEach(icon => {
+        icon.style.animation = 'iconFloat 3s ease-in-out infinite';
+        icon.style.animationDelay = `${Math.random() * 2}s`;
+    });
+    
+    // Initialize password strength animation
+    const passwordInput = document.getElementById('password-input');
+    if (passwordInput) {
+        passwordInput.addEventListener('focus', function() {
+            this.parentElement.style.transform = 'scale(1.02)';
+            this.parentElement.style.boxShadow = '0 0 20px rgba(102, 126, 234, 0.3)';
+        });
+        
+        passwordInput.addEventListener('blur', function() {
+            this.parentElement.style.transform = 'scale(1)';
+            this.parentElement.style.boxShadow = '';
+        });
     }
 }
+
+// Add cyber safety specific animations CSS
+const cyberAnimationStyles = `
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes successPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(72, 187, 120, 0.5);
+    }
+}
+
+@keyframes errorShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes celebrationBounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.rule-card {
+    transition: all 0.3s ease;
+}
+
+.answer-btn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.answer-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.answer-btn:hover::before {
+    width: 200px;
+    height: 200px;
+}
+
+.scenario-item {
+    transition: all 0.3s ease;
+}
+
+.scenario-item:hover {
+    transform: translateY(-3px);
+}
+`;
+
+// Inject styles
+const cyberStyleSheet = document.createElement('style');
+cyberStyleSheet.textContent = cyberAnimationStyles;
+document.head.appendChild(cyberStyleSheet);
