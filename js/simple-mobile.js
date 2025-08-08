@@ -40,13 +40,34 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle dropdown toggle functionality for mobile
         document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
             toggle.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    e.stopPropagation();
+                console.log('Dropdown toggle clicked', window.innerWidth);
+                e.preventDefault();
+                e.stopPropagation();
 
-                    const dropdown = this.closest('.nav-dropdown');
-                    dropdown.classList.toggle('open');
+                const dropdown = this.closest('.nav-dropdown');
+                const wasOpen = dropdown.classList.contains('open');
+
+                // Close all other dropdowns first
+                document.querySelectorAll('.nav-dropdown').forEach(dd => {
+                    dd.classList.remove('open');
+                });
+
+                // Toggle this dropdown
+                if (!wasOpen) {
+                    dropdown.classList.add('open');
+                    console.log('Dropdown opened');
+                } else {
+                    console.log('Dropdown closed');
                 }
+            });
+        });
+
+        // Also handle touch events for better mobile compatibility
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.click();
             });
         });
 
