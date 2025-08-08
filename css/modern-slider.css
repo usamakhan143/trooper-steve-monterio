@@ -292,8 +292,8 @@
 
 @media (max-width: 768px) {
     .slide-content {
-        padding: 0 20px 80px 20px;
-        align-items: flex-end;
+        padding: 0 20px 40px 20px;
+        align-items: center;
     }
 
     .hero-content-wrapper {
@@ -338,7 +338,8 @@
 
 @media (max-width: 480px) {
     .slide-content {
-        padding: 0 15px 60px 15px;
+        padding: 0 15px 30px 15px;
+        align-items: center;
     }
 
     .hero-content-wrapper {

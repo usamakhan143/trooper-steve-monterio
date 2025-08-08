@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Handle dropdown functionality for mobile
-        document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
-            trigger.addEventListener('click', function(e) {
+        // Handle dropdown toggle functionality for mobile
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
                     e.stopPropagation();
