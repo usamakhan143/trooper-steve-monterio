@@ -86,26 +86,61 @@ function initMobileMenu() {
 
 // Mobile dropdown functionality (click to toggle)
 function initMobileDropdowns() {
+    // Handle new dropdown toggle structure
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            console.log('Dropdown toggle clicked', window.innerWidth);
+            e.preventDefault();
+            e.stopPropagation();
+
+            const dropdown = this.closest('.nav-dropdown');
+            const wasOpen = dropdown.classList.contains('open');
+
+            // Close all other dropdowns first
+            document.querySelectorAll('.nav-dropdown').forEach(dd => {
+                dd.classList.remove('open');
+            });
+
+            // Toggle this dropdown
+            if (!wasOpen) {
+                dropdown.classList.add('open');
+                console.log('Mobile dropdown opened');
+            } else {
+                console.log('Mobile dropdown closed');
+            }
+        });
+
+        // Also handle touch events for better mobile compatibility
+        toggle.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            this.click();
+        });
+    });
+
+    // Fallback for old dropdown-trigger structure (if any pages still use it)
     const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
-    
+
     dropdownTriggers.forEach(trigger => {
         trigger.addEventListener('click', function(e) {
             if (window.innerWidth <= 768) {
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 const dropdown = this.closest('.nav-dropdown');
                 const isOpen = dropdown.classList.contains('open');
-                
+
                 console.log('Dropdown trigger clicked:', this.textContent);
-                
+
                 // Close all other dropdowns
                 document.querySelectorAll('.nav-dropdown').forEach(otherDropdown => {
                     if (otherDropdown !== dropdown) {
                         otherDropdown.classList.remove('open');
                     }
                 });
-                
+
                 // Toggle current dropdown
                 if (isOpen) {
                     dropdown.classList.remove('open');
