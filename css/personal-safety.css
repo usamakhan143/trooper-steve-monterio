@@ -1,119 +1,873 @@
 /* Personal Safety Page Specific Styles */
 
+/* Hero Section Colors for Personal Safety */
 .personal-safety-hero {
-    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    background: 
+        linear-gradient(rgba(46, 204, 113, 0.8), rgba(39, 174, 96, 0.7)),
+        url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
 }
 
-.hero-top-shade {
+/* Trusted Adults Section */
+.trusted-adults {
+    padding: 100px 0;
+    background: #000000;
+}
+
+.trusted-adults .section-title {
+    color: #C8AC5B;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.trusted-adults .section-subtitle {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trusted-adults-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.trusted-adult-card {
+    background: #0F2743;
+    border: 2px solid #C8AC5B;
+    border-radius: 0;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.trusted-adult-card::before {
+    content: '';
     position: absolute;
     top: 0;
-    left: 0;
+    left: -100%;
     width: 100%;
-    height: 200px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.3) 80%, transparent 100%);
-    z-index: 3;
-    pointer-events: none;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(46, 204, 113, 0.1), rgba(200, 172, 91, 0.1));
+    transition: left 0.3s ease;
 }
 
-.personal-safety-hero .safety-icon {
-    color: #ffffff;
+.trusted-adult-card:hover::before {
+    left: 0;
 }
 
-.personal-safety-hero h1 {
-    color: #ffffff;
+.trusted-adult-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(200, 172, 91, 0.3);
 }
 
-.personal-safety-hero p {
-    color: #ffffff;
+.adult-icon {
+    font-size: 4rem;
+    color: #2ecc71;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
 }
 
-/* Personal safety-specific rule steps */
-.personal-safety .rule-step {
+.trusted-adult-card:hover .adult-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.trusted-adult-card h3 {
+    color: #C8AC5B;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.trusted-adult-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.trusted-adult-card ul li {
+    color: #FFFFFF;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(200, 172, 91, 0.2);
+    font-size: 1rem;
+}
+
+.trusted-adult-card ul li:last-child {
+    border-bottom: none;
+}
+
+.trusted-adult-card p {
+    color: #FFFFFF;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 1.5rem;
+}
+
+/* Safe vs Unsafe Situations Section */
+.safe-vs-unsafe {
+    padding: 100px 0;
+    background: #0F2743;
+}
+
+.safe-vs-unsafe .section-title {
+    color: #C8AC5B;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.game-instructions {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.game-instructions p {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.situations-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.situation-card {
+    background: #000000;
+    border: 2px solid #C8AC5B;
+    border-radius: 0;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.situation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(200, 172, 91, 0.2);
+}
+
+.situation-image {
+    font-size: 4rem;
+    color: #2ecc71;
+    margin-bottom: 1.5rem;
+}
+
+.situation-card h3 {
+    color: #C8AC5B;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.situation-card p {
+    color: #FFFFFF;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.choice-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.safe-btn, .unsafe-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 0;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.safe-btn {
+    background: linear-gradient(45deg, #2ecc71, #27ae60);
+    color: white;
+    border: 1px solid #2ecc71;
+}
+
+.unsafe-btn {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    color: white;
+    border: 1px solid #e74c3c;
+}
+
+.safe-btn:hover, .unsafe-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.game-score {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.game-score p {
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+#reset-game {
+    background: linear-gradient(45deg, #C8AC5B, #0F2743);
+    color: white;
+    border: 1px solid #C8AC5B;
+    padding: 1rem 2rem;
+    border-radius: 0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#reset-game:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(200, 172, 91, 0.3);
+    background: linear-gradient(45deg, #0F2743, #C8AC5B);
+}
+
+/* Body Safety Section */
+.body-safety {
+    padding: 100px 0;
+    background: #000000;
+}
+
+.body-safety .section-title {
+    color: #C8AC5B;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.body-safety-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.body-safety-rules {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.safety-rule-item {
+    background: #0F2743;
+    border: 2px solid #C8AC5B;
+    border-radius: 0;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.safety-rule-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(200, 172, 91, 0.2);
+}
+
+.rule-icon {
+    font-size: 3rem;
+    color: #2ecc71;
+    margin-bottom: 1.5rem;
+}
+
+.safety-rule-item h3 {
+    color: #C8AC5B;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.safety-rule-item p {
+    color: #FFFFFF;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.body-safety-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.safety-illustration {
+    background: #0F2743;
+    border: 2px solid #C8AC5B;
+    border-radius: 0;
+    padding: 3rem;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.illustration-placeholder {
+    color: #FFFFFF;
+}
+
+.illustration-placeholder i {
+    font-size: 6rem;
+    color: #2ecc71;
+    margin-bottom: 1rem;
+}
+
+.illustration-placeholder p {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Emergency Information Section */
+.emergency-info {
+    padding: 100px 0;
+    background: #0F2743;
+}
+
+.emergency-info .section-title {
+    color: #C8AC5B;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.info-card {
+    background: #000000;
+    border: 2px solid #C8AC5B;
+    border-radius: 0;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(200, 172, 91, 0.3);
+}
+
+.info-icon {
+    font-size: 4rem;
+    color: #2ecc71;
+    margin-bottom: 1.5rem;
+}
+
+.info-card h3 {
+    color: #C8AC5B;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.big-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #e74c3c;
+    margin: 1rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.address-example, .phone-example, .name-example {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #C8AC5B;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(200, 172, 91, 0.1);
+    border: 1px solid rgba(200, 172, 91, 0.3);
+}
+
+.info-card p {
+    color: #FFFFFF;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Community Helpers Section */
+.community-helpers {
+    padding: 100px 0;
+    background: #000000;
+}
+
+.community-helpers .section-title {
+    color: #C8AC5B;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.community-helpers .game-instructions {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+.matching-game {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin: 3rem 0;
+}
+
+.helpers-column, .jobs-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.helper-card, .job-card {
+    background: #0F2743;
+    border: 2px solid #C8AC5B;
+    border-radius: 0;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.helper-card:hover, .job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(200, 172, 91, 0.2);
+}
+
+.helper-emoji {
+    font-size: 3rem;
+    color: #2ecc71;
+    margin-bottom: 1rem;
+}
+
+.helper-card p, .job-card p {
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.drop-zone {
+    min-height: 60px;
+    border: 2px dashed #C8AC5B;
+    border-radius: 0;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.drop-zone.dragover {
+    background: rgba(200, 172, 91, 0.2);
     border-color: #2ecc71;
 }
 
-.personal-safety .step-number {
-    background: #2ecc71;
+.game-completion {
+    text-align: center;
+    background: #0F2743;
+    border: 2px solid #C8AC5B;
+    border-radius: 0;
+    padding: 3rem;
+    margin-top: 3rem;
 }
 
-.personal-safety .rule-step h3 {
+.game-completion h3 {
+    color: #C8AC5B;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.game-completion p {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+#restart-matching {
+    background: linear-gradient(45deg, #C8AC5B, #0F2743);
+    color: white;
+    border: 1px solid #C8AC5B;
+    padding: 1rem 2rem;
+    border-radius: 0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#restart-matching:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(200, 172, 91, 0.3);
+    background: linear-gradient(45deg, #0F2743, #C8AC5B);
+}
+
+/* Safety Promise Section */
+.personal-safety-promise {
+    padding: 100px 0;
+    background: #0F2743;
+}
+
+.promise-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #000000;
+    border: 2px solid #C8AC5B;
+    border-radius: 0;
+    padding: 4rem 3rem;
+}
+
+.promise-content h2 {
+    color: #C8AC5B;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.promise-text p {
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.promise-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    text-align: left;
+    display: inline-block;
+}
+
+.promise-text ul li {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(200, 172, 91, 0.3);
+    position: relative;
+    padding-left: 2rem;
+}
+
+.promise-text ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
     color: #2ecc71;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
-.personal-safety .progress-fill {
+.promise-text ul li:last-child {
+    border-bottom: none;
+}
+
+.promise-btn {
     background: linear-gradient(45deg, #2ecc71, #27ae60);
+    color: white;
+    border: 2px solid #2ecc71;
+    padding: 1.5rem 3rem;
+    border-radius: 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2rem;
 }
 
-.personal-safety .safety-point {
-    border-left-color: #2ecc71;
+.promise-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(46, 204, 113, 0.4);
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
 }
 
-.personal-safety .safety-point h4 {
+/* Resources Section */
+.personal-safety-resources {
+    padding: 100px 0;
+    background: #000000;
+}
+
+.personal-safety-resources .section-title {
+    color: #C8AC5B;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.resource-card {
+    background: #0F2743;
+    border: 2px solid #C8AC5B;
+    border-radius: 0;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(200, 172, 91, 0.3);
+}
+
+.resource-icon {
+    font-size: 4rem;
     color: #2ecc71;
+    margin-bottom: 1.5rem;
 }
 
-.personal-safety .illustration-placeholder {
-    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+.resource-card h3 {
+    color: #C8AC5B;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.personal-safety .restart-quiz {
-    background: #2ecc71;
+.resource-card p {
+    color: #FFFFFF;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
 }
 
-.personal-safety .restart-quiz:hover {
-    background: #27ae60;
+.resource-card .download-btn {
+    background: linear-gradient(45deg, #C8AC5B, #0F2743);
+    color: white;
+    border: 1px solid #C8AC5B;
+    padding: 0.8rem 2rem;
+    border-radius: 0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Mobile Responsiveness */
+.resource-card .download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(200, 172, 91, 0.3);
+    background: linear-gradient(45deg, #0F2743, #C8AC5B);
+}
+
+/* Mobile Responsive Design */
 @media (max-width: 768px) {
-    .safety-hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .safety-hero p {
-        font-size: 1.1rem;
-        padding: 0 1rem;
-    }
-
-    .rule-steps {
+    .trusted-adults-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
     }
-
-    .content-grid {
+    
+    .situations-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .body-safety-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+    
+    .body-safety-rules {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-cards {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .matching-game {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
 
-    .quiz-container {
-        padding: 2rem;
+    .helpers-column, .jobs-column {
+        gap: 0.8rem;
+    }
+
+    .helper-card, .job-card {
+        padding: 1rem;
+        font-size: 0.9rem;
+        min-height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .helper-emoji {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .drop-zone {
+        min-height: 45px;
+        margin-top: 0.5rem;
+        border-width: 2px;
+    }
+
+    .community-helpers .game-instructions {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .promise-content {
+        padding: 2rem 1.5rem;
         margin: 0 1rem;
     }
-
-    .safety-hero {
-        height: 50vh;
-        margin-top: 100px;
+    
+    .section-title {
+        font-size: 2rem;
     }
-
-    .floating-elements {
-        display: none;
+    
+    .choice-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .safety-hero h1 {
+    .trusted-adult-card,
+    .situation-card,
+    .safety-rule-item,
+    .info-card,
+    .resource-card {
+        padding: 1.5rem;
+    }
+
+    .adult-icon,
+    .situation-image,
+    .rule-icon,
+    .info-icon,
+    .resource-icon {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .promise-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .big-number {
         font-size: 2rem;
     }
 
-    .safety-hero p {
+    .situations-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+
+    .situation-card {
+        padding: 1rem;
+    }
+
+    .situation-card h3 {
         font-size: 1rem;
     }
 
-    .safety-icon {
-        font-size: 3.5rem;
+    .situation-card p {
+        font-size: 0.9rem;
     }
 
-    .quiz-container {
-        padding: 1.5rem;
+    /* Further mobile optimization for community helpers */
+    .matching-game {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+    }
+
+    .helper-card, .job-card {
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .helper-card p, .job-card p {
+        font-size: 0.85rem;
+        margin: 0;
+    }
+
+    .helper-emoji {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .drop-zone {
+        min-height: 40px;
+        margin-top: 0.5rem;
+        border-width: 1px;
+    }
+
+    .game-completion {
+        padding: 2rem 1rem;
+        margin-top: 2rem;
+    }
+
+    .game-completion h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .game-completion p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
     }
 }
