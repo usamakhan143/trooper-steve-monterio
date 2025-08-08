@@ -251,13 +251,35 @@
     gap: 4rem;
 }
 
+/* FIXED: Helmet Safety Sub-heading */
 .helmet-importance h3 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     margin-bottom: 2rem;
-    color: #C8AC5B;
+    color: #FFFFFF;
+    text-align: left;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.5px;
+}
+
+/* Helmet Safety Image */
+.helmet-safety-image {
+    margin: 2rem 0;
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+}
+
+.helmet-safety-image .safety-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(200, 172, 91, 0.3);
+    border: 3px solid #C8AC5B;
+    transition: transform 0.3s ease;
+}
+
+.helmet-safety-image .safety-image:hover {
+    transform: scale(1.02);
 }
 
 .helmet-info {
@@ -339,18 +361,21 @@
     font-size: 1.2rem;
 }
 
+/* FIXED: Bike Rules Sub-heading */
 .bike-rules h3 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     margin-bottom: 2rem;
-    color: #C8AC5B;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color: #FFFFFF;
+    text-align: left;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.5px;
 }
 
+/* FIXED: Bike Rules Grid - 4 in 1 row */
 .rules-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
 }
 
@@ -400,18 +425,21 @@
     gap: 4rem;
 }
 
+/* FIXED: Crosswalk Safety Sub-heading */
 .crosswalk-safety h3 {
-    font-size: 2.5rem;
-    color: #C8AC5B;
+    font-size: 1.8rem;
+    color: #FFFFFF;
     margin-bottom: 2rem;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    text-align: left;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.5px;
 }
 
+/* FIXED: Crosswalk Steps - 5 in 1 row */
 .crosswalk-steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -448,7 +476,7 @@
 }
 
 .step-item h4 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #C8AC5B;
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -458,20 +486,24 @@
 .step-item p {
     color: #FFFFFF;
     line-height: 1.5;
+    font-size: 0.9rem;
 }
 
+/* FIXED: Walking Tips Sub-heading */
 .walking-tips h3 {
-    font-size: 2.5rem;
-    color: #C8AC5B;
+    font-size: 1.8rem;
+    color: #FFFFFF;
     margin-bottom: 2rem;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    text-align: left;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.5px;
 }
 
+/* FIXED: Tips Grid - 4 in 1 row */
 .tips-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
 }
 
@@ -517,22 +549,35 @@
     line-height: 1.5;
 }
 
-/* Safety Equipment Game */
+/* Safety Equipment Game - FIXED */
 .safety-equipment {
     padding: 100px 0;
     background: #0F2743;
     color: white;
 }
 
-.equipment-game {
-    margin-top: 3rem;
+/* FIXED: Game Instructions - White and Centered */
+.game-instructions {
+    color: #FFFFFF !important;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    font-weight: 500;
 }
 
+.equipment-game {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+/* FIXED: Equipment Items - One Column */
 .equipment-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: 1fr;
     gap: 1.5rem;
-    margin-bottom: 3rem;
 }
 
 .equipment-item {
@@ -568,9 +613,10 @@
     letter-spacing: 0.5px;
 }
 
+/* FIXED: Vehicle Targets - One Column with 2 drop zones each */
 .vehicle-targets {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
     gap: 2rem;
 }
 
@@ -579,8 +625,6 @@
     padding: 2rem;
     border-radius: 0;
     text-align: center;
-    min-height: 200px;
-    position: relative;
     border: 2px solid #C8AC5B;
 }
 
@@ -598,15 +642,16 @@
     letter-spacing: 0.5px;
 }
 
+/* FIXED: Drop Zones - 2 zones per vehicle to match 4 equipment items */
 .drop-zones {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .drop-zone {
-    min-height: 60px;
+    min-height: 80px;
     border: 2px dashed #C8AC5B;
     border-radius: 0;
     display: flex;
@@ -614,6 +659,14 @@
     justify-content: center;
     transition: all 0.3s ease;
     background: #0F2743;
+    font-size: 0.9rem;
+    color: #C8AC5B;
+    text-align: center;
+}
+
+.drop-zone:empty::before {
+    content: "Drop Here";
+    opacity: 0.7;
 }
 
 .drop-zone.drag-over {
@@ -624,12 +677,13 @@
 .equipment-feedback {
     text-align: center;
     margin-top: 2rem;
+    grid-column: 1 / -1;
 }
 
 #equipment-feedback-text {
     font-size: 1.2rem;
     margin-bottom: 1rem;
-    color: #C8AC5B;
+    color: #FFFFFF;
 }
 
 .equipment-score {
@@ -849,6 +903,24 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .rules-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .crosswalk-steps {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .equipment-game {
+        gap: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
     .section-title {
         font-size: 2rem;
@@ -875,8 +947,9 @@
         grid-template-columns: 1fr;
     }
     
-    .equipment-items {
-        grid-template-columns: repeat(2, 1fr);
+    .equipment-game {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
     .vehicle-targets {
@@ -902,10 +975,6 @@
         padding: 1.5rem;
     }
     
-    .equipment-items {
-        grid-template-columns: 1fr;
-    }
-    
     .traffic-light {
         width: 100px;
         height: 250px;
@@ -921,5 +990,9 @@
     .action-btn {
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
+    }
+    
+    .drop-zones {
+        grid-template-columns: 1fr;
     }
 }
