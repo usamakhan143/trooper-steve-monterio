@@ -948,8 +948,8 @@
     }
     
     .equipment-game {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
     }
     
     .vehicle-targets {
@@ -994,5 +994,6 @@
     
     .drop-zones {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }
